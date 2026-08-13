@@ -1,0 +1,56 @@
+{
+  "forecast_accuracy": {
+    "AAPL": {
+      "balanced_accuracy": 0.47203995793901155,
+      "brier_score": 0.25827540331907406,
+      "direction_accuracy": 0.47163695299837927,
+      "long_precision": 0.48494983277591974,
+      "long_recall": 0.45741324921135645,
+      "observations": 617,
+      "roc_auc": 0.4741009463722397
+    },
+    "BTC-USD": {
+      "balanced_accuracy": 0.478611005772553,
+      "brier_score": 0.2572698733687654,
+      "direction_accuracy": 0.47487844408427876,
+      "long_precision": 0.5,
+      "long_recall": 0.404320987654321,
+      "observations": 617,
+      "roc_auc": 0.4758248009101252
+    },
+    "EURUSD=X": {
+      "balanced_accuracy": 0.4589680563760655,
+      "brier_score": 0.26283859705718804,
+      "direction_accuracy": 0.4586709886547812,
+      "long_precision": 0.4901315789473684,
+      "long_recall": 0.45426829268292684,
+      "observations": 617,
+      "roc_auc": 0.4480230399189805
+    }
+  },
+  "instruments": [
+    {
+      "asset_class": "equity",
+      "symbol": "AAPL"
+    },
+    {
+      "asset_class": "crypto",
+      "symbol": "BTC-USD"
+    },
+    {
+      "asset_class": "forex",
+      "symbol": "EURUSD=X"
+    }
+  ],
+  "portfolio_metrics": {
+    "annualized_return": -0.1936883137226152,
+    "annualized_volatility": 0.07586351777250877,
+    "average_turnover": 0.6081829530316948,
+    "calmar_ratio": -0.5781762569375033,
+    "final_equity": 69494.68157266176,
+    "maximum_drawdown": -0.33499873334222974,
+    "sharpe_ratio": -2.799081258191758,
+    "total_cost": 0.262674217414389,
+    "total_return": -0.30505318427338235
+  }
+}

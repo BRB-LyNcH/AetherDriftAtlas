@@ -1,0 +1,367 @@
+{
+  "benchmarks": {
+    "full_exposure_long": {
+      "annualized_return": 0.4795578017251101,
+      "annualized_volatility": 0.3045121945091294,
+      "average_turnover": 0.0409197570104738,
+      "calmar_ratio": 1.168608825874067,
+      "final_equity": 1684024.038434978,
+      "maximum_drawdown": -0.41036640414419456,
+      "sharpe_ratio": 1.439512649807414,
+      "total_return": 15.84024038434978
+    },
+    "same_exposure_long": {
+      "annualized_return": 0.13030306549578485,
+      "annualized_volatility": 0.24378447316632115,
+      "average_turnover": 0.4740594022688541,
+      "calmar_ratio": 0.40891856155355616,
+      "final_equity": 241791.22617451512,
+      "maximum_drawdown": -0.3186528510731813,
+      "sharpe_ratio": 0.623589380878139,
+      "total_return": 1.4179122617451512
+    }
+  },
+  "forecast_accuracy": {
+    "AAPL": {
+      "balanced_accuracy": 0.4906330238988742,
+      "brier_score": 0.25258236169237386,
+      "direction_accuracy": 0.49524895477004943,
+      "long_precision": 0.5280216070222823,
+      "long_recall": 0.5542168674698795,
+      "observations": 2631,
+      "roc_auc": 0.48593777230426044
+    },
+    "AMZN": {
+      "balanced_accuracy": 0.5072410661190813,
+      "brier_score": 0.2520070235181895,
+      "direction_accuracy": 0.5070315469403269,
+      "long_precision": 0.5423987776928954,
+      "long_recall": 0.5042613636363636,
+      "observations": 2631,
+      "roc_auc": 0.503674250167249
+    },
+    "GOOGL": {
+      "balanced_accuracy": 0.5112370382070914,
+      "brier_score": 0.25118818201769927,
+      "direction_accuracy": 0.5066514633219308,
+      "long_precision": 0.5479930191972077,
+      "long_recall": 0.4460227272727273,
+      "observations": 2631,
+      "roc_auc": 0.5225036934141084
+    },
+    "META": {
+      "balanced_accuracy": 0.5027453248706806,
+      "brier_score": 0.25230818032018504,
+      "direction_accuracy": 0.5043709616115546,
+      "long_precision": 0.5247875354107648,
+      "long_recall": 0.5393013100436681,
+      "observations": 2631,
+      "roc_auc": 0.5119059612603192
+    },
+    "MSFT": {
+      "balanced_accuracy": 0.5044012182000293,
+      "brier_score": 0.25187282293742297,
+      "direction_accuracy": 0.5036107943747624,
+      "long_precision": 0.5411490683229814,
+      "long_recall": 0.4936260623229462,
+      "observations": 2631,
+      "roc_auc": 0.5117346452648922
+    },
+    "NVDA": {
+      "balanced_accuracy": 0.49105030706303243,
+      "brier_score": 0.25256735139695696,
+      "direction_accuracy": 0.4967692892436336,
+      "long_precision": 0.537525354969574,
+      "long_recall": 0.554006968641115,
+      "observations": 2631,
+      "roc_auc": 0.4894374978150164
+    },
+    "ORCL": {
+      "balanced_accuracy": 0.5142714982012302,
+      "brier_score": 0.25171202073090637,
+      "direction_accuracy": 0.516153553781832,
+      "long_precision": 0.5455197132616487,
+      "long_recall": 0.5435714285714286,
+      "observations": 2631,
+      "roc_auc": 0.5143785540211211
+    },
+    "TSLA": {
+      "balanced_accuracy": 0.49877711070634223,
+      "brier_score": 0.2532215098787705,
+      "direction_accuracy": 0.49562903838844546,
+      "long_precision": 0.5165745856353591,
+      "long_recall": 0.4115920763022744,
+      "observations": 2631,
+      "roc_auc": 0.49553545597829984
+    }
+  },
+  "instruments": [
+    {
+      "asset_class": "equity",
+      "symbol": "ORCL"
+    },
+    {
+      "asset_class": "equity",
+      "symbol": "TSLA"
+    },
+    {
+      "asset_class": "equity",
+      "symbol": "GOOGL"
+    },
+    {
+      "asset_class": "equity",
+      "symbol": "MSFT"
+    },
+    {
+      "asset_class": "equity",
+      "symbol": "AAPL"
+    },
+    {
+      "asset_class": "equity",
+      "symbol": "AMZN"
+    },
+    {
+      "asset_class": "equity",
+      "symbol": "NVDA"
+    },
+    {
+      "asset_class": "equity",
+      "symbol": "META"
+    }
+  ],
+  "portfolio_metrics": {
+    "annualized_return": -0.015252127605096644,
+    "annualized_volatility": 0.2239295855019394,
+    "average_turnover": 0.5350178657107815,
+    "calmar_ratio": -0.034768584603148335,
+    "cost_drag_total_return": 1.5021554147756782,
+    "cumulative_cost_return": 0.9853424032795463,
+    "estimated_total_cost_dollars": 79508.12566874205,
+    "final_equity": 89512.87492563418,
+    "gross_annualized_return": 0.1289603417721059,
+    "gross_sharpe_ratio": 0.6526432396709554,
+    "gross_total_return": 1.39728416403202,
+    "maximum_drawdown": -0.4386755394039119,
+    "sharpe_ratio": 0.042509551685053465,
+    "total_cost": 0.9853424032795463,
+    "total_return": -0.10487125074365822
+  },
+  "research_configuration": {
+    "auto_threshold": true,
+    "slippage_bps": 2.0,
+    "threshold_candidates": [
+      0.52,
+      0.55,
+      0.58,
+      0.61
+    ],
+    "threshold_min_trades": 20,
+    "threshold_reselect_every_folds": 4,
+    "transaction_cost_bps": 5.0
+  },
+  "research_gate": {
+    "checks": {
+      "adds_directional_value": {
+        "minimum": 0.0,
+        "observed": -1.5227835124888094,
+        "passed": false
+      },
+      "drawdown_limit": {
+        "minimum": -0.25,
+        "observed": -0.4386755394039119,
+        "passed": false
+      },
+      "model_discrimination": {
+        "minimum": 0.52,
+        "observed": 0.5225036934141084,
+        "passed": true
+      },
+      "risk_adjusted_return": {
+        "minimum": 0.5,
+        "observed": 0.042509551685053465,
+        "passed": false
+      },
+      "sufficient_trades": {
+        "minimum": 60,
+        "observed": 4199,
+        "passed": true
+      }
+    },
+    "failed_checks": [
+      "risk_adjusted_return",
+      "drawdown_limit",
+      "adds_directional_value"
+    ],
+    "policy": {
+      "max_drawdown": 0.25,
+      "min_net_sharpe": 0.5,
+      "min_roc_auc": 0.52,
+      "min_trades": 60
+    },
+    "status": "REJECTED"
+  },
+  "run_manifest": {
+    "feature_columns": [
+      "return_1d",
+      "return_5d",
+      "sma_ratio_10",
+      "sma_ratio_30",
+      "volatility_20d",
+      "rsi_14",
+      "range_pct",
+      "volume_zscore_20"
+    ],
+    "feature_config": {
+      "long_window": 30,
+      "rsi_window": 14,
+      "short_window": 10,
+      "target_horizon": 1,
+      "volatility_window": 20
+    },
+    "forecaster_config": {
+      "max_depth": 5,
+      "min_samples_leaf": 8,
+      "n_estimators": 300,
+      "random_state": 42
+    },
+    "market_data": {
+      "AAPL": {
+        "first_timestamp": "2014-01-02 00:00:00",
+        "last_timestamp": "2026-08-05 00:00:00",
+        "rows": 3166,
+        "sha256": "68c55c5aaf50c7cf5da571e0c0a7160ff1e40245e143f70c5905969e963080d2"
+      },
+      "AMZN": {
+        "first_timestamp": "2014-01-02 00:00:00",
+        "last_timestamp": "2026-08-05 00:00:00",
+        "rows": 3166,
+        "sha256": "e6a77f439164246fdbf2f74113797e6a863cee968d38f49ae8e01787d77cecf2"
+      },
+      "GOOGL": {
+        "first_timestamp": "2014-01-02 00:00:00",
+        "last_timestamp": "2026-08-05 00:00:00",
+        "rows": 3166,
+        "sha256": "35c7b539fa89a2761acabcfcf9d6f8668f42da64d85e5dcffbb4c2d94043cf60"
+      },
+      "META": {
+        "first_timestamp": "2014-01-02 00:00:00",
+        "last_timestamp": "2026-08-05 00:00:00",
+        "rows": 3166,
+        "sha256": "c2883a67cabafc2a43e7f6febbddef27a050144d62ad0ce5aa4899208bdac912"
+      },
+      "MSFT": {
+        "first_timestamp": "2014-01-02 00:00:00",
+        "last_timestamp": "2026-08-05 00:00:00",
+        "rows": 3166,
+        "sha256": "93f3542b3eec1842bd8faf5557e5358770e45b2446d283a10d998e1974d84130"
+      },
+      "NVDA": {
+        "first_timestamp": "2014-01-02 00:00:00",
+        "last_timestamp": "2026-08-05 00:00:00",
+        "rows": 3166,
+        "sha256": "a69472d0af2f5c4f3f360c98c4f741bac2a14871c84823d5a915540e2ee6d683"
+      },
+      "ORCL": {
+        "first_timestamp": "2014-01-02 00:00:00",
+        "last_timestamp": "2026-08-05 00:00:00",
+        "rows": 3166,
+        "sha256": "2064abaad037822b1a45e85703e7d067d2126260e0c467c1c9e89843012f1ce8"
+      },
+      "TSLA": {
+        "first_timestamp": "2014-01-02 00:00:00",
+        "last_timestamp": "2026-08-05 00:00:00",
+        "rows": 3166,
+        "sha256": "30a4b3550a7e37e6c6b14aedf5e55708e52522446efacbc3be388f12912320e4"
+      }
+    },
+    "package_version": "0.1.0",
+    "walk_forward_config": {
+      "embargo_bars": 1,
+      "min_train_size": 504,
+      "step_size": 63,
+      "test_size": 63
+    }
+  },
+  "signal_diagnostics": {
+    "AAPL": {
+      "long_trades": 239,
+      "mean_signed_return": 0.0003471446754415776,
+      "median_signed_return": -0.0007487726583890186,
+      "short_trades": 150,
+      "signal_sharpe_before_cost": 0.30400719223150174,
+      "trade_hit_rate": 0.4730077120822622,
+      "trade_rate": 0.14785252755606235,
+      "trades": 389
+    },
+    "AMZN": {
+      "long_trades": 337,
+      "mean_signed_return": 0.0019192209374409303,
+      "median_signed_return": 0.0006687663761180129,
+      "short_trades": 308,
+      "signal_sharpe_before_cost": 1.7727697721811082,
+      "trade_hit_rate": 0.5162790697674419,
+      "trade_rate": 0.2451539338654504,
+      "trades": 645
+    },
+    "GOOGL": {
+      "long_trades": 198,
+      "mean_signed_return": 0.0009483306964242396,
+      "median_signed_return": 0.0011313884340776736,
+      "short_trades": 250,
+      "signal_sharpe_before_cost": 0.9211148650696056,
+      "trade_hit_rate": 0.53125,
+      "trade_rate": 0.1702774610414291,
+      "trades": 448
+    },
+    "META": {
+      "long_trades": 450,
+      "mean_signed_return": 0.0008379269164908052,
+      "median_signed_return": 0.0017706491178680617,
+      "short_trades": 368,
+      "signal_sharpe_before_cost": 0.6111492153190448,
+      "trade_hit_rate": 0.5366748166259169,
+      "trade_rate": 0.31090839984796653,
+      "trades": 818
+    },
+    "MSFT": {
+      "long_trades": 247,
+      "mean_signed_return": 0.0023806408856400993,
+      "median_signed_return": 0.0009237471584979673,
+      "short_trades": 188,
+      "signal_sharpe_before_cost": 2.381207515626965,
+      "trade_hit_rate": 0.5402298850574713,
+      "trade_rate": 0.1653363740022805,
+      "trades": 435
+    },
+    "NVDA": {
+      "long_trades": 319,
+      "mean_signed_return": 0.003007175835903201,
+      "median_signed_return": 0.0018472121480752612,
+      "short_trades": 156,
+      "signal_sharpe_before_cost": 1.8408706228499434,
+      "trade_hit_rate": 0.52,
+      "trade_rate": 0.18053971873812238,
+      "trades": 475
+    },
+    "ORCL": {
+      "long_trades": 217,
+      "mean_signed_return": 0.0006196709911393706,
+      "median_signed_return": -0.00018496645687848812,
+      "short_trades": 214,
+      "signal_sharpe_before_cost": 0.4393545068648359,
+      "trade_hit_rate": 0.4895591647331787,
+      "trade_rate": 0.1638160395286963,
+      "trades": 431
+    },
+    "TSLA": {
+      "long_trades": 274,
+      "mean_signed_return": -0.0006394044254024132,
+      "median_signed_return": -0.0012367535710381405,
+      "short_trades": 284,
+      "signal_sharpe_before_cost": -0.30434661423350906,
+      "trade_hit_rate": 0.46774193548387094,
+      "trade_rate": 0.2120866590649943,
+      "trades": 558
+    }
+  }
+}

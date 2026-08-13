@@ -1,0 +1,222 @@
+{
+  "benchmarks": {
+    "full_exposure_long": {
+      "annualized_return": 0.08547875952383466,
+      "annualized_volatility": 0.15591048585472783,
+      "average_turnover": 0.2224445698333313,
+      "calmar_ratio": 0.3530240458285515,
+      "final_equity": 179567.99847169712,
+      "maximum_drawdown": -0.24213296667430972,
+      "sharpe_ratio": 0.6039573909739097,
+      "total_return": 0.7956799847169713
+    },
+    "same_exposure_long": {
+      "annualized_return": 0.010160954896994312,
+      "annualized_volatility": 0.1582138867385259,
+      "average_turnover": 0.21586069436399583,
+      "calmar_ratio": 0.02556777509851744,
+      "final_equity": 107481.93959298613,
+      "maximum_drawdown": -0.39741255771541495,
+      "sharpe_ratio": 0.14296471127481283,
+      "total_return": 0.07481939592986131
+    }
+  },
+  "forecast_accuracy": {
+    "AAPL": {
+      "balanced_accuracy": 0.49574480394127074,
+      "brier_score": 0.2517283438251457,
+      "direction_accuracy": 0.5030788177339901,
+      "long_precision": 0.527363184079602,
+      "long_recall": 0.6148491879350348,
+      "observations": 1624,
+      "roc_auc": 0.49127798990323424
+    },
+    "BTC-USD": {
+      "balanced_accuracy": 0.511645303179038,
+      "brier_score": 0.2509217400344143,
+      "direction_accuracy": 0.511520737327189,
+      "long_precision": 0.5158730158730159,
+      "long_recall": 0.4954268292682927,
+      "observations": 2604,
+      "roc_auc": 0.5183445971456618
+    },
+    "EURUSD=X": {
+      "balanced_accuracy": 0.48355210489993095,
+      "brier_score": 0.25372171531029103,
+      "direction_accuracy": 0.48326482677627713,
+      "long_precision": 0.47011494252873565,
+      "long_recall": 0.4939613526570048,
+      "observations": 1703,
+      "roc_auc": 0.4896949620427882
+    }
+  },
+  "instruments": [
+    {
+      "asset_class": "equity",
+      "symbol": "AAPL"
+    },
+    {
+      "asset_class": "crypto",
+      "symbol": "BTC-USD"
+    },
+    {
+      "asset_class": "forex",
+      "symbol": "EURUSD=X"
+    }
+  ],
+  "portfolio_metrics": {
+    "annualized_return": 0.017953571405376012,
+    "annualized_volatility": 0.15511089490057603,
+    "average_turnover": 0.26383320448153835,
+    "calmar_ratio": 0.06575027128526928,
+    "cost_drag_total_return": 0.7015496212350054,
+    "cumulative_cost_return": 0.48109984837208525,
+    "estimated_total_cost_dollars": 59544.32760491546,
+    "final_equity": 113541.44547561422,
+    "gross_annualized_return": 0.08894139533656453,
+    "gross_sharpe_ratio": 0.6268122677511172,
+    "gross_total_return": 0.8369640759911476,
+    "maximum_drawdown": -0.27305699359750535,
+    "sharpe_ratio": 0.1920106126570512,
+    "total_cost": 0.48109984837208525,
+    "total_return": 0.13541445475614222
+  },
+  "research_configuration": {
+    "auto_threshold": true,
+    "slippage_bps": 2.0,
+    "threshold_candidates": [
+      0.52,
+      0.55,
+      0.58,
+      0.61
+    ],
+    "threshold_min_trades": 20,
+    "threshold_reselect_every_folds": 4,
+    "transaction_cost_bps": 5.0
+  },
+  "research_gate": {
+    "checks": {
+      "adds_directional_value": {
+        "minimum": 0.0,
+        "observed": 0.06059505882628091,
+        "passed": true
+      },
+      "drawdown_limit": {
+        "minimum": -0.25,
+        "observed": -0.27305699359750535,
+        "passed": false
+      },
+      "model_discrimination": {
+        "minimum": 0.52,
+        "observed": 0.5183445971456618,
+        "passed": false
+      },
+      "risk_adjusted_return": {
+        "minimum": 0.5,
+        "observed": 0.1920106126570512,
+        "passed": false
+      },
+      "sufficient_trades": {
+        "minimum": 60,
+        "observed": 1728,
+        "passed": true
+      }
+    },
+    "failed_checks": [
+      "model_discrimination",
+      "risk_adjusted_return",
+      "drawdown_limit"
+    ],
+    "policy": {
+      "max_drawdown": 0.25,
+      "min_net_sharpe": 0.5,
+      "min_roc_auc": 0.52,
+      "min_trades": 60
+    },
+    "status": "REJECTED"
+  },
+  "run_manifest": {
+    "feature_columns": [
+      "return_1d",
+      "return_5d",
+      "sma_ratio_10",
+      "sma_ratio_30",
+      "volatility_20d",
+      "rsi_14",
+      "range_pct",
+      "volume_zscore_20"
+    ],
+    "feature_config": {
+      "long_window": 30,
+      "rsi_window": 14,
+      "short_window": 10,
+      "target_horizon": 1,
+      "volatility_window": 20
+    },
+    "forecaster_config": {
+      "max_depth": 5,
+      "min_samples_leaf": 8,
+      "n_estimators": 300,
+      "random_state": 42
+    },
+    "market_data": {
+      "AAPL": {
+        "first_timestamp": "2018-01-02 00:00:00",
+        "last_timestamp": "2026-08-05 00:00:00",
+        "rows": 2159,
+        "sha256": "a1d16b580e2ec742bd8a35b808e7dbf8e5065bcf01c056b240743f42e4acd7c1"
+      },
+      "BTC-USD": {
+        "first_timestamp": "2018-01-01 00:00:00",
+        "last_timestamp": "2026-08-06 00:00:00",
+        "rows": 3139,
+        "sha256": "476ee95c86561c1fce6c2205fae1c99c7452aa38ac5474c95519e2d99c73a734"
+      },
+      "EURUSD=X": {
+        "first_timestamp": "2018-01-01 00:00:00",
+        "last_timestamp": "2026-08-06 00:00:00",
+        "rows": 2238,
+        "sha256": "94c5abdbe57db7e0f86f2063fac51a2549aa9de9aeef9cc64f4addb7d312eb3a"
+      }
+    },
+    "package_version": "0.1.0",
+    "walk_forward_config": {
+      "embargo_bars": 1,
+      "min_train_size": 504,
+      "step_size": 63,
+      "test_size": 63
+    }
+  },
+  "signal_diagnostics": {
+    "AAPL": {
+      "long_trades": 171,
+      "mean_signed_return": 0.0009813747764829352,
+      "median_signed_return": -0.00033649582644257325,
+      "short_trades": 158,
+      "signal_sharpe_before_cost": 0.7563544419247992,
+      "trade_hit_rate": 0.49848024316109424,
+      "trade_rate": 0.2025862068965517,
+      "trades": 329
+    },
+    "BTC-USD": {
+      "long_trades": 576,
+      "mean_signed_return": 0.0015440666669104942,
+      "median_signed_return": 0.001438078624255934,
+      "short_trades": 636,
+      "signal_sharpe_before_cost": 0.8465785529326777,
+      "trade_hit_rate": 0.5214521452145214,
+      "trade_rate": 0.46543778801843316,
+      "trades": 1212
+    },
+    "EURUSD=X": {
+      "long_trades": 70,
+      "mean_signed_return": 9.61980113378639e-05,
+      "median_signed_return": 0.00021942717310774462,
+      "short_trades": 117,
+      "signal_sharpe_before_cost": 0.3245059195850078,
+      "trade_hit_rate": 0.5240641711229946,
+      "trade_rate": 0.1098062243100411,
+      "trades": 187
+    }
+  }
+}
