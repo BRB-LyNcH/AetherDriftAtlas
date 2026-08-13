@@ -1,0 +1,2 @@
+[console_scripts]
+aetherdrift-atlas = aetherdrift_atlas.cli:main

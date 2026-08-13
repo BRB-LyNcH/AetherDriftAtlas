@@ -1,0 +1,96 @@
+Metadata-Version: 2.4
+Name: aetherdrift-atlas
+Version: 0.1.0
+Summary: Multi-asset, walk-forward quantitative research and backtesting platform
+Author: AetherDrift
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy<3.0,>=1.24
+Requires-Dist: pandas<3.0,>=2.0
+Requires-Dist: scikit-learn<2.0,>=1.3
+Requires-Dist: yfinance<1.0,>=0.2.40
+Provides-Extra: dev
+Requires-Dist: pytest<9.0,>=8.0; extra == "dev"
+Requires-Dist: ruff<1.0,>=0.6; extra == "dev"
+
+# AetherDrift Atlas
+
+`AetherDrift Atlas` is a separate, enhanced research project built from the foundations of `AetherDrift`. It evaluates forecast quality and backtests a cost-aware portfolio across equities, ETFs, crypto, FX, and commodities.
+
+It is for research and paper-trading workflows—not investment advice or a production execution system. Historical results and directional accuracy do not establish future performance.
+
+```mermaid
+flowchart LR
+    A["Validated OHLCV data"] --> B["Point-in-time features"]
+    B --> C["Purged expanding-window training"]
+    C --> D["Out-of-sample probabilities + accuracy"]
+    D --> E["Long / flat / short signals"]
+    E --> F["Volatility-balanced portfolio"]
+    F --> G["Costs, drawdown, turnover, metrics"]
+```
+
+## What is improved
+
+- Multi-asset support with explicit conventions for equity, ETF, crypto, forex, and commodity instruments.
+- Walk-forward validation with an embargo between a training window and test window, reducing label overlap and time-series leakage.
+- Probabilistic direction forecasts with reported accuracy, balanced accuracy, long precision/recall, Brier calibration score, and ROC-AUC.
+- A portfolio backtester that applies transaction costs, slippage, turnover, maximum per-asset weights, gross-exposure limits, inverse-volatility balancing, equity curves, drawdown, Sharpe, Calmar, and a transparent equal-weight benchmark.
+- Download caching, normalized OHLCV validation, a deterministic offline demo, CSV artifacts, a JSON run summary, and automated tests.
+
+## Quick start
+
+From [AetherDrift-Atlas](.) in PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -e ".[dev]"
+python -m aetherdrift_atlas --demo --output outputs/demo
+pytest
+```
+
+The offline demo makes no network requests and writes predictions, executed weights, portfolio history, and a `summary.json` file into `outputs/demo`.
+
+## Run live research
+
+Yahoo Finance symbols are passed directly, so the same command can mix markets:
+
+```powershell
+python -m aetherdrift_atlas `
+  --symbols AAPL MSFT BTC-USD EURUSD=X GLD `
+  --asset-classes equity equity crypto forex etf `
+  --start 2018-01-01 `
+  --output outputs/multi_asset
+```
+
+Use `--refresh` to replace the cached data for a request. The provider adapter is intentionally isolated in `src/aetherdrift_atlas/data.py`, so a broker or institutional feed can replace Yahoo Finance without modifying the research, validation, or accounting layers.
+
+## How the accuracy and backtest align
+
+At decision timestamp `t`, Atlas computes features from information available through `t`. It predicts the direction of the forward close-to-close return `t → t+1` and stores that realized return at `t` as `target_return`. The portfolio therefore consumes each signal against its explicitly aligned forward return; it never trades on a return from the same already-observed bar.
+
+The model is retrained for every expanding validation window. No final held-out period is blended into training, and the configured one-bar embargo prevents a training label from crossing the test boundary. Accuracy is reported only from these out-of-sample forecasts. A useful model should be judged by calibration, stability across folds/assets, costs, drawdown, and turnover—not a single headline accuracy number.
+
+## Project layout
+
+```text
+AetherDrift-Atlas/
+├── src/aetherdrift_atlas/
+│   ├── assets.py       # Asset categories and annualization conventions
+│   ├── data.py         # Yahoo adapter, normalization, CSV caching
+│   ├── features.py     # Point-in-time features and labels
+│   ├── model.py        # Direction model and accuracy metrics
+│   ├── walkforward.py  # Embargoed expanding validation
+│   ├── backtest.py     # Multi-asset portfolio accounting
+│   └── cli.py          # Reproducible command-line workflow
+├── tests/              # Offline regression tests
+└── pyproject.toml      # Installable package and dependencies
+```
+
+## Recommended next enhancements
+
+1. Add an independent data source and reconciliation checks before relying on any live signal.
+2. Compare the current forest against simple baselines (buy/hold, momentum, mean reversion) and more than one market regime.
+3. Add a paper-trading adapter with broker-specific market calendars, fractional-sizing rules, and order-fill reconciliation before considering live execution.
+4. Track experiments in an immutable run registry, including data version, feature set, seed, configuration, and code revision.
